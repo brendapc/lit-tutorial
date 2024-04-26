@@ -32,7 +32,7 @@ export class MyPanel extends LitElement {
           <div>⭐</div>
         </div>
         <div class="body">
-          Content here
+          <slot></slot>
         </div>
       </div>
     `
