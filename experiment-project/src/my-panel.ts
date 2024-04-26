@@ -28,12 +28,28 @@ export class MyPanel extends LitElement {
   @property({type: Boolean})
   opened = false;
 
+  @property({type: String})
+  icon = '⭐';
+
+  private onIconClickHandler(e: MouseEvent) {
+    e.stopPropagation();
+    this.dispatchEvent(new CustomEvent('icon-click', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        title: this.title,
+        opened: this.opened,
+        icon: this.icon
+      }
+    }));  
+  }
+
   render() {
     return html`
       <div>
         <div class="title" @click=${() => this.opened = !this.opened}>
           <h1>${this.title}</h1>
-          <div>⭐</div>
+          <div @click=${this.onIconClickHandler} >${this.icon}</div>
         </div>
 
         ${when(
