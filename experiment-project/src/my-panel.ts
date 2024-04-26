@@ -1,5 +1,6 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { when } from "lit/directives/when.js";
 
 @customElement('my-panel')
 export class MyPanel extends LitElement {
@@ -24,16 +25,25 @@ export class MyPanel extends LitElement {
   @property({type: String})
   title = '';
 
+  @property({type: Boolean})
+  opened = false;
+
   render() {
     return html`
       <div>
-        <div class="title">
+        <div class="title" @click=${() => this.opened = !this.opened}>
           <h1>${this.title}</h1>
           <div>⭐</div>
         </div>
-        <div class="body">
-          <slot></slot>
-        </div>
+
+        ${when(
+          this.opened,
+          () => html`
+            <div class="body">
+              <slot></slot>
+            </div>
+          `,
+        )}
       </div>
     `
   }
