@@ -7,10 +7,18 @@
     <title>Vite + Lit + TS</title>
     <link rel="stylesheet" href="./src/index.css" />
     <script type="module" src="/src/my-element.ts"></script>
+    <script type="module" src="/src/my-panel.ts"></script>
+    <style>
+      my-panel {
+        --primary-panel-bg: lightblue;
+        --primary-panel-color: #222;
+      }
+    </style>
   </head>
   <body>
+    <my-panel></my-panel>
     <my-element>
       <h1>Vite + Lit</h1>
-    </my-element>
+    </my-element> 
   </body>
 </html>
