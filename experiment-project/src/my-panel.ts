@@ -20,6 +20,10 @@ export class MyPanel extends LitElement {
       padding: 1rem;
       border: 1px solid aquamarine;
     }
+
+    .icon{
+      cursor: pointer;
+    }
   `
 
   @property({type: String})
@@ -49,7 +53,7 @@ export class MyPanel extends LitElement {
       <div>
         <div class="title" @click=${() => this.opened = !this.opened}>
           <h1>${this.title}</h1>
-          <div @click=${this.onIconClickHandler} >${this.icon}</div>
+          <div class="icon" @click=${this.onIconClickHandler} >${this.icon}</div>
         </div>
 
         ${when(

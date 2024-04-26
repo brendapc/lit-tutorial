@@ -24,5 +24,11 @@
     <my-element>
       <h1>Vite + Lit</h1>
     </my-element> 
+    <script>
+      const element = document.querySelector('my-panel');
+      element.addEventListener('icon-click', () => {
+        console.log('clicked');
+      });
+    </script>
   </body>
 </html>
